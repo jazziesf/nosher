@@ -1,0 +1,95 @@
+.details-container {
+  background-color: #F9F9F9;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  border-radius: 10px;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 1.25em;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 23px;
+  font-family: 'Kaushan Script', cursive;
+}
+
+.top-left {
+  padding-left: 6px;
+  z-index: 1;
+  height: 30px;
+  background-color: transparent;
+  float: left;
+}
+
+.top-left:hover {
+  cursor: pointer;
+}
+
+.dish-detail {
+  color: black;
+  font-family: 'Pacifico', cursive;
+
+  /* font-family: 'Berkshire Swash', cursive; */
+  text-align: left;
+  font-size: 1.5em;
+  margin-bottom: 0;
+  padding-right: 15px;
+  z-index: auto;
+}
+
+.restuarnt {
+  font-family: 'ZCOOL XiaoWei', serif;
+  color: black;
+  text-align: left;
+  margin-bottom: 0;
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+.city {
+  font-family: 'ZCOOL XiaoWei', serif;
+  color:black;
+  text-align: left;
+  padding-bottom: .75em;
+  border-bottom: 1px solid grey;
+  margin-bottom: .5em;
+}
+
+/* .pin {
+  z-index: 1;
+} */
+
+.detail-user {
+  float: right;
+}
+
+.icons-details {
+  padding-top: 3px;
+  padding-bottom: 1.35em;
+}
+
+.description {
+  color: black;
+  text-align: left;
+  font-family: arial;
+}
+
+.likes-details {
+  padding-top: 8px;
+  margin-bottom: 8px;
+  color: grey;
+  text-align: left;
+  padding-left: 6px;
+  font-family: 'ZCOOL XiaoWei', serif, arial;
+}
+
+.googlemap {
+  height: 200px;
+  width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+    .detail-btn { margin-right: 30px; }
+}

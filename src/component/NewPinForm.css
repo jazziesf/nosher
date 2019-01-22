@@ -1,0 +1,66 @@
+.form-div {
+  background: #F9F9F9;
+  border-radius: 2%;
+  padding-bottom: 45px;
+  padding-top: 20px;
+  margin-right: 14%;
+  margin-left:14%;
+  margin-bottom: 50px;
+  z-index: 1;
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 500px) {
+  .form-div {
+    margin-left: 4%;
+    margin-right: 4%; }
+}
+
+.new-pin-form {
+  padding-left: 18%;
+  padding-right: 18%;
+  font-family: 'ZCOOL XiaoWei', serif;
+}
+
+@media screen and (max-width: 700px) {
+  .form-div {
+    margin-left: 20% !important;
+    margin-right: 20% !important; }
+}
+
+@media screen and (max-width: 600px) {
+  .form-div {
+    margin-left: 4% !important;
+    margin-right: 4% !important; }
+}
+
+@media screen and (max-width: 500px) {
+  .new-pin-form {
+    padding-left: 10%;
+    padding-right: 10%; }
+}
+
+.form-group {
+  text-align: left;
+  color: black;
+}
+
+.new {
+  margin-bottom: 15px;
+}
+
+.new-pin-form--submit {
+  float: right;
+  font-family: 'Pacifico', cursive;
+
+  /* font-family: 'Berkshire Swash', cursive; */
+}
+
+.state {
+  height: 38.5px !important;
+}
+
+#exampleInputFile {
+  font-family: 'Pacifico', cursive;
+  /* font-family: 'Berkshire Swash', cursive, sans-serif; */
+}
