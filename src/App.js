@@ -306,7 +306,7 @@ class App extends Component {
 
     if ( query === '') return;
 
-    this.MyBoardSearch(query);
+    this.myBoardSearch(query);
     this.setState({
       isRevealed: false,
     })
