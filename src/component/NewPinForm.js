@@ -75,7 +75,8 @@ class NewPinForm extends Component {
       loaded: 0,
       tags: [1],
       categories: ["1"],
-      user: 2
+      user: window.localStorage.getItem('id')
+
     };
   }
 

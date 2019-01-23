@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Details.css'
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 // import GoogleMaps from './GoogleMaps'
 
@@ -51,7 +51,7 @@ render() {
         <div className="row">
           <div className="col-12 col-sm-6 img-fluid img-responsive">
             <img src={pin.image} alt={pin.dish} className="image-fix"/>
-            <Link to="/mynosherboard" className="top-right btn btn-warning" onClick={() => this.props.goBack()}>Back</Link>
+            <Link to="/mynosherboard" className="top-right btn btn-warning" onClick={() => this.props.history.goBack()}>Back</Link>
           </div>
           <div className="col-12 col-sm-6">
             <div className="container">
@@ -95,4 +95,4 @@ MyBoardDetails.propTypes = {
 }
 
 
-export default MyBoardDetails;
+export default withRouter(MyBoardDetails);
