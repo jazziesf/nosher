@@ -20,7 +20,7 @@ import NoResults from './component/NoResults'
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import axios from 'axios'
 
-const URL = "http://127.0.0.1:8000/api/pin/pin/"
+const URL = "http://fast-reaches-52593.herokuapp.com/api/pin/pin/"
 
 class App extends Component {
   constructor(props) {
@@ -57,7 +57,7 @@ class App extends Component {
 
   onSearch = (params) => {
 
-    const url = `http://127.0.0.1:8000/api/pin/pin/?city=${params}`
+    const url = `http://fast-reaches-52593.herokuapp.com/api/pin/pin/?city=${params}`
 
       axios.get(url, { headers: { Authorization: `Token ${document.cookie}`}})
       .then((response) => {

@@ -17,7 +17,7 @@ class MyBoardDetails extends Component {
 
 
   componentDidMount() {
-    const URL = "http://127.0.0.1:8000/api/pin/pin/"
+    const URL = "http://fast-reaches-52593.herokuapp.com/api/pin/pin/"
 
     if (this.props.selectedPin === undefined) {
       axios.get(URL + this.props.pinId, { headers: { Authorization: `Token ${document.cookie}`}})

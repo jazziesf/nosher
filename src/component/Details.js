@@ -7,7 +7,7 @@ import axios from 'axios';
 // import { Redirect } from 'react-router'
 
 // import GoogleMaps from './GoogleMaps'
-const URL = "http://127.0.0.1:8000/api/pin/pin/"
+const URL = "http://fast-reaches-52593.herokuapp.com/api/pin/pin/"
 
 class Details extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class Details extends Component {
 
   pinToBoard = (pin) => {
     const userId = parseInt(window.localStorage.getItem('id'));
-    const URL = `http://127.0.0.1:8000/api/board/board/${userId}/pins/${pin.id}/add/`
+    const URL = `http://fast-reaches-52593.herokuapp.com/api/board/board/${userId}/pins/${pin.id}/add/`
 
     const apiPayload = {
       pin: [pin],

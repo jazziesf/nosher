@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios'
 
 // import './NewPinForm.css'
-const URL = 'http://127.0.0.1:8000/api/user/create/'
+const URL = 'http://fast-reaches-52593.herokuapp.com/api/user/create/'
 
 class NewUserLogin extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class NewUserLogin extends Component {
       password: newUser.password,
       email: newUser.email,
     }
-    const url = "http://127.0.0.1:8000/api/user/token/"
+    const url = "http://fast-reaches-52593.herokuapp.com/api/user/token/"
     axios.post(url, apiPayload)
       .then((response) => {
 

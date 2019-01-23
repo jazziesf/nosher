@@ -3,7 +3,7 @@ import './NewPinForm.css'
 import PropTypes from 'prop-types';
 import axios from 'axios'
 
-const URL = "http://127.0.0.1:8000/api/pin/pin/"
+const URL = "http://fast-reaches-52593.herokuapp.com/api/pin/pin/"
 
 class NewPinForm extends Component {
   constructor(props) {

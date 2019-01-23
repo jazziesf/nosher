@@ -19,7 +19,7 @@ class MyPinsList extends Component {
 
     componentDidMount() {
       const userId = window.localStorage.getItem('id')
-      const URL = `http://127.0.0.1:8000/api/board/board/${userId}/`
+      const URL = `http://fast-reaches-52593.herokuapp.com/api/board/board/${userId}/`
 
         axios.get(URL, { headers: { Authorization: `Token ${document.cookie}`}})
           .then((response) => {
@@ -54,7 +54,7 @@ class MyPinsList extends Component {
 
       removePinFromBoard = (pin) => {
         const userId = parseInt(window.localStorage.getItem('id'));
-        const URL = `http://127.0.0.1:8000/api/board/board/${userId}/pins/${pin.id}/remove/`
+        const URL = `http://fast-reaches-52593.herokuapp.com/api/board/board/${userId}/pins/${pin.id}/remove/`
 
           const apiPayload = {
             pin: [pin],
