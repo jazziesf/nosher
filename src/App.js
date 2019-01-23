@@ -31,6 +31,7 @@ class App extends Component {
       isHidden: false,
       isRevealed: false,
       pinList: [],
+      myBoard: [],
       currentPin: undefined,
       likes: 0,
       loggedIn: false,
@@ -48,12 +49,6 @@ class App extends Component {
       });
     }
 
-
-  // nameCallback = (name) => {
-  //   this.setState({
-  //     name: name
-  //   })
-  // }
 
   onSearch = (params) => {
 
@@ -102,7 +97,7 @@ class App extends Component {
 
   }
 
-  onSearch = (params) => {
+  myBoardSearch = (params) => {
 
     const url = `http://fast-reaches-52593.herokuapp.com/api/pin/mypins/?city=${params}`
 
@@ -131,7 +126,7 @@ class App extends Component {
           return newPin;
         })
         this.setState({
-          pinList: pins,
+          myBoard: pins,
           isActive: false,
           isOpen: false,
           isRevealed: false,
@@ -337,9 +332,20 @@ class App extends Component {
       key={pin.id}
       pinButton={"Pin"}
       likesCountCallback={() => this.incrementLikes(pin)}
-      pinToBoardCallback={() => this.pinToBoard(pin)}
+      pinToBoardCallback={() => this.props.pinToBoard(pin)}
       detailsPageCallback={() => this.detailsPageCallback(pin)}
       buttonType={"top-right btn btn-danger"}
+      {...pin}
+      /> })
+
+    const myBoard = this.state.myBoard.map((pin) => {
+      return <PinPostCard
+      key={pin.id}
+      pinButton={"Remove"}
+      likesCountCallback={() => this.incrementLikes(pin)}
+      pinToBoardCallback={() => this.props.removePinFromBoard(pin)}
+      detailsPageCallback={() => this.detailsPageCallback(pin)}
+      buttonType={"top-right btn btn-warning"}
       {...pin}
       />
     })
@@ -388,6 +394,7 @@ class App extends Component {
               this.state.results ? (
                 <StackGrid columnWidth={400} >
                    {pinList}
+                   {myBoard}
                  </StackGrid>
                ) : (
                 <NoResults >
@@ -405,6 +412,7 @@ class App extends Component {
                  selectPinCallback={(pinId) => this.onSelectPin(pinId)}
                  detailsPageCallback={this.detailsPageCallback}
                  incrementLikes={(pinId) => this.incrementLikes(pinId)}
+                 pinToBoard={this.props.pinToBoard}
               />
               </div>
 
@@ -444,6 +452,7 @@ class App extends Component {
               selectPinCallback={(pinId) => this.onSelectPin(pinId)}
               detailsPageCallback={this.myDetailsPageCallback}
               incrementLikes={(pinId) => this.incrementLikes(pinId)}
+              removePinFromBoard={this.props.removePinFromBoard}
               />
             )}
           />
@@ -504,8 +513,10 @@ class App extends Component {
         </div>
       </Router>
     </div>
-    );
+    )
   }
 }
 
-    export default App;
+
+
+export default App;
