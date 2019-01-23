@@ -68,14 +68,6 @@ class App extends Component {
 
           const newPin = {
             ...pin,
-            // id: pin.id,
-            // image: pin.image,
-            // details: pin.details,
-            // city: pin.city,
-            // state: pin.state,
-            // dish: pin.dish,
-            // business: pin.business,
-            // likes: pin.likes,
           };
           return newPin;
         })
@@ -114,14 +106,6 @@ class App extends Component {
 
           const newPin = {
             ...pin,
-            // id: pin.id,
-            // image: pin.image,
-            // details: pin.details,
-            // city: pin.city,
-            // state: pin.state,
-            // dish: pin.dish,
-            // business: pin.business,
-            // likes: pin.likes,
           };
           return newPin;
         })
@@ -213,6 +197,72 @@ class App extends Component {
       isOpen: false,
     });
   }
+
+  removePinFromBoard = (pin) => {
+    const userId = parseInt(window.localStorage.getItem('id'));
+    const URL = `http://fast-reaches-52593.herokuapp.com/api/board/board/${userId}/pins/${pin.id}/remove/`
+
+      const apiPayload = {
+        myBoard: [pin],
+        user: userId,
+      }
+
+      axios.delete(URL, { data: apiPayload }, {headers: {Authorization: `Token ${document.cookie}`}})
+      .then((response) => {
+        console.log(response)
+        const selectedPin = this.state.myBoard.findIndex((item) => {
+             return item.id === pin.id;
+         });
+
+        this.state.myBoard.splice(selectedPin, 1)
+
+        this.setState({
+          myBoard: this.state.myBoard,
+        })
+        // What should we do when we know the post request worked?
+      })
+      .catch((error) => {
+        // What should we do when we know the post request failed?
+        this.setState({
+          errorMessage: `Failure ${error.message}`,
+        })
+      });
+    }
+
+
+
+  // add pin to myboard
+  pinToBoard = (pin) => {
+    const userId = parseInt(window.localStorage.getItem('id'));
+    const URL = `http://fast-reaches-52593.herokuapp.com/api/board/board/${userId}/pins/${pin.id}/add/`
+
+      const apiPayload = {
+        pinList: [pin],
+        user: userId,
+      }
+
+      axios.post(URL, apiPayload, { headers: {Authorization: `Token ${document.cookie}`}})
+      .then((response) => {
+        console.log(response)
+        const selectedPin = this.state.myPinList.findIndex((item) => {
+             return item.id === pin.id;
+         });
+
+        this.state.pinList.splice(selectedPin, 1)
+
+        this.setState({
+          pinList: this.state.pinList,
+        })
+        // What should we do when we know the post request worked?
+      })
+      .catch((error) => {
+        // What should we do when we know the post request failed?
+        this.setState({
+          errorMessage: `Failure ${error.message}`,
+        })
+      });
+    }
+
 
   // call details page for myboard pin with a remove pin callback
   myDetailsPageCallback = (pin) => {
@@ -332,7 +382,7 @@ class App extends Component {
       key={pin.id}
       pinButton={"Pin"}
       likesCountCallback={() => this.incrementLikes(pin)}
-      pinToBoardCallback={() => this.props.pinToBoard(pin)}
+      pinToBoardCallback={() => this.pinToBoard(pin)}
       detailsPageCallback={() => this.detailsPageCallback(pin)}
       buttonType={"top-right btn btn-danger"}
       {...pin}
@@ -343,7 +393,7 @@ class App extends Component {
       key={pin.id}
       pinButton={"Remove"}
       likesCountCallback={() => this.incrementLikes(pin)}
-      pinToBoardCallback={() => this.props.removePinFromBoard(pin)}
+      pinToBoardCallback={() => this.removePinFromBoard(pin)}
       detailsPageCallback={() => this.detailsPageCallback(pin)}
       buttonType={"top-right btn btn-warning"}
       {...pin}
@@ -426,7 +476,6 @@ class App extends Component {
                  selectPinCallback={(pinId) => this.onSelectPin(pinId)}
                  detailsPageCallback={this.detailsPageCallback}
                  incrementLikes={(pinId) => this.incrementLikes(pinId)}
-                 pinToBoard={this.props.pinToBoard}
               />
               </div>
 
@@ -466,7 +515,6 @@ class App extends Component {
               selectPinCallback={(pinId) => this.onSelectPin(pinId)}
               detailsPageCallback={this.myDetailsPageCallback}
               incrementLikes={(pinId) => this.incrementLikes(pinId)}
-              removePinFromBoard={this.props.removePinFromBoard}
               />
             )}
           />

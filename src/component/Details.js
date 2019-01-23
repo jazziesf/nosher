@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Details.css'
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { withRouter } from "react-router-dom";
+
 // import { Link } from "react-router-dom";
 // import { createBrowserHistory } from 'history';
 // import { Redirect } from 'react-router'
@@ -45,6 +47,7 @@ class Details extends Component {
       // this.setState = {
       //   pin: null,
       // }
+      this.props.history.goBack()
     })
     .catch((error) => {
       // What should we do when we know the post request failed?
@@ -112,4 +115,4 @@ Details.propTypes = {
 }
 
 
-export default Details
+export default withRouter(Details)
