@@ -28,7 +28,7 @@ return (
             </li>
             <li className={props.dropdownClassName} >
               <p className="nav-link dropdown-toggle" href="/nosher" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded={props.expandDropdown} onClick={props.dropdown}>
-                {props.username} Nosher Account
+                Nosher Profile
               </p>
               <div className={props.dropdownShow} aria-labelledby="navbarDropdown">
                 <p className="dropdown-item" onClick={props.closeNav}>{props.logout}</p>
@@ -42,6 +42,7 @@ return (
           <form className="form-inline my-2 my-lg-0 searchInput">
             <input className="form-control mr-sm-2" name="query" type="search" placeholder="Search by City" aria-label="Search" value={props.searchQueryValue} onChange={props.searchQueryonChange}/>
             <button className="btn btn-outline-danger text-white my-2 my-sm-0 search" onClick={props.searchQuery} type="submit">{props.searchLink}</button>
+            <button className="btn btn-outline-warning my-2 my-sm-0 search" onClick={props.searchMyBoard} type="submit">{props.searchBoard}</button>
           </form>
         </div>
       </nav>

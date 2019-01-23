@@ -22,7 +22,7 @@ return (
               <p className="nav-link guest" onClick={props.closeNav}>{props.signUp}</p>
             </li>
           </ul>
-          <span class="navbar-text">
+          <span className="navbar-text">
             Snap, Eat, & Share
           </span>
         </div>

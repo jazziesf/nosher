@@ -5,7 +5,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import StackGrid from "react-stack-grid";
 
-const URL = "http://fast-reaches-52593.herokuapp.com/api/pin/pin/"
+const URL = "http://fast-reaches-52593.herokuapp.com/api/pin/available/"
 
 class AllPinsList extends Component {
   constructor(props) {

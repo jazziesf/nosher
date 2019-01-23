@@ -7,7 +7,7 @@ import axios from 'axios';
 // import { Redirect } from 'react-router'
 
 // import GoogleMaps from './GoogleMaps'
-const URL = "http://fast-reaches-52593.herokuapp.com/api/pin/pin/"
+const URL = "http://fast-reaches-52593.herokuapp.com/api/pin/available/"
 
 class Details extends Component {
   constructor(props) {

@@ -57,7 +57,8 @@ class App extends Component {
 
   onSearch = (params) => {
 
-    const url = `http://fast-reaches-52593.herokuapp.com/api/pin/pin/?city=${params}`
+    const url = `http://fast-reaches-52593.herokuapp.com/api/pin/available/?city=${params}`
+    // const url = `http://fast-reaches-52593.herokuapp.com/api/pin/mypins/?city=${params}`
 
       axios.get(url, { headers: { Authorization: `Token ${document.cookie}`}})
       .then((response) => {
@@ -72,14 +73,60 @@ class App extends Component {
 
           const newPin = {
             ...pin,
-            id: pin.id,
-            image: pin.image,
-            details: pin.details,
-            city: pin.city,
-            state: pin.state,
-            dish: pin.dish,
-            business: pin.business,
-            likes: pin.likes,
+            // id: pin.id,
+            // image: pin.image,
+            // details: pin.details,
+            // city: pin.city,
+            // state: pin.state,
+            // dish: pin.dish,
+            // business: pin.business,
+            // likes: pin.likes,
+          };
+          return newPin;
+        })
+        this.setState({
+          pinList: pins,
+          isActive: false,
+          isOpen: false,
+          isRevealed: false,
+          results: true,
+        })
+      }
+      })
+      .catch((error) => {
+        console.log(error.message);
+        this.setState({
+          error: error.message,
+        })
+      })
+
+  }
+
+  onSearch = (params) => {
+
+    const url = `http://fast-reaches-52593.herokuapp.com/api/pin/mypins/?city=${params}`
+
+      axios.get(url, { headers: { Authorization: `Token ${document.cookie}`}})
+      .then((response) => {
+        if (response.data.length === 0) {
+          this.setState({
+            isActive: false,
+            isOpen: false,
+            results: false,
+          })
+        } else {
+        const pins = response.data.map((pin) => {
+
+          const newPin = {
+            ...pin,
+            // id: pin.id,
+            // image: pin.image,
+            // details: pin.details,
+            // city: pin.city,
+            // state: pin.state,
+            // dish: pin.dish,
+            // business: pin.business,
+            // likes: pin.likes,
           };
           return newPin;
         })
@@ -255,6 +302,22 @@ class App extends Component {
     this.resetState();
   }
 
+  onMyBoardSubmit = (event) => {
+    // if(event.charCode === 13 ){
+    // console.log('enter press here! ')
+    // }
+    event.preventDefault();
+    const { query } = this.state;
+
+    if ( query === '') return;
+
+    this.MyBoardSearch(query);
+    this.setState({
+      isRevealed: false,
+    })
+    this.resetState();
+  }
+
 
   render() {
     const show = this.state.isOpen ? "collapse navbar-collapse show" : "collapse navbar-collapse"
@@ -302,7 +365,9 @@ class App extends Component {
           searchQuery={this.onSubmit}
           searchQueryonChange={this.onFormChange}
           searchQueryValue={this.state.query}
+          searchMyBoard={this.onMyBoardSubmit}
           searchLink={<Link to="/searchresults" className="btn-outline-danger my-2 my-sm-0 searchBtn" onClick={() => this.viewBoard()}>Search</Link>}
+          searchBoard={<Link to="/searchresults" className="btn-outline-warning my-2 my-sm-0 searchBtn" onClick={() => this.viewBoard()}>Search Your Board</Link>}
           />
           ) : (
           <NavbarGuest

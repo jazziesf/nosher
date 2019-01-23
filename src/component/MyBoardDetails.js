@@ -17,7 +17,7 @@ class MyBoardDetails extends Component {
 
 
   componentDidMount() {
-    const URL = "http://fast-reaches-52593.herokuapp.com/api/pin/pin/"
+    const URL = "http://fast-reaches-52593.herokuapp.com/api/pin/pin/mypins/"
 
     if (this.props.selectedPin === undefined) {
       axios.get(URL + this.props.pinId, { headers: { Authorization: `Token ${document.cookie}`}})
@@ -51,7 +51,7 @@ render() {
         <div className="row">
           <div className="col-12 col-sm-6 img-fluid img-responsive">
             <img src={pin.image} alt={pin.dish} className="image-fix"/>
-            <Link to="/mynosherboard" className="top-right btn btn-warning" onClick={() => this.props.history.replace("/mynosherboard")}>Back</Link>
+            <Link to="/mynosherboard" className="top-right btn btn-warning" onClick={() => this.props.history.go(-3)}>Back</Link>
           </div>
           <div className="col-12 col-sm-6">
             <div className="container">

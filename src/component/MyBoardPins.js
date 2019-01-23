@@ -18,8 +18,7 @@ class MyPinsList extends Component {
       }
 
     componentDidMount() {
-      const userId = window.localStorage.getItem('id')
-      const URL = `http://fast-reaches-52593.herokuapp.com/api/board/board/${userId}/`
+      const URL = `http://fast-reaches-52593.herokuapp.com/api/pin/pin/mypins/`
 
         axios.get(URL, { headers: { Authorization: `Token ${document.cookie}`}})
           .then((response) => {
