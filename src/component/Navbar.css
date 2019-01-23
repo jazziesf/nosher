@@ -175,7 +175,7 @@ body { padding-top: 40px; }
 }
 
 .search-myboard {
-  padding-left: 4px !important;
+  margin-left: 4px !important;
   font-family: 'Pacifico', cursive;
   font-weight: bold;
 }

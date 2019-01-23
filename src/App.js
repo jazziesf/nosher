@@ -327,7 +327,7 @@ class App extends Component {
       userName = 'Nosher'
     }
 
-    const pinList = this.state.pinList.map((pin) => {
+    let searchResults = this.state.pinList.map((pin) => {
       return <PinPostCard
       key={pin.id}
       pinButton={"Pin"}
@@ -338,7 +338,7 @@ class App extends Component {
       {...pin}
       /> })
 
-    const myBoard = this.state.myBoard.map((pin) => {
+    searchResults = this.state.myBoard.map((pin) => {
       return <PinPostCard
       key={pin.id}
       pinButton={"Remove"}
@@ -393,8 +393,7 @@ class App extends Component {
               ) : (
               this.state.results ? (
                 <StackGrid columnWidth={400} >
-                   {pinList}
-                   {myBoard}
+                   {searchResults}
                  </StackGrid>
                ) : (
                 <NoResults >
