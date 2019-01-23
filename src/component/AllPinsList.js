@@ -5,7 +5,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import StackGrid from "react-stack-grid";
 
-const URL = "http://127.0.0.1:8000/api/pin/pin/"
+const URL = "http://fast-reaches-52593.herokuapp.com/api/pin/pin/"
 
 class AllPinsList extends Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class AllPinsList extends Component {
 
   pinToBoard = (pin) => {
     const userId = parseInt(window.localStorage.getItem('id'));
-    const URL = `http://127.0.0.1:8000/api/board/board/${userId}/pins/${pin.id}/add/`
+    const URL = `http://fast-reaches-52593.herokuapp.com/api/board/board/${userId}/pins/${pin.id}/add/`
 
       const apiPayload = {
         pin: [pin],

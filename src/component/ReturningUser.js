@@ -3,7 +3,7 @@ import './NewUserLogin.css'
 import PropTypes from 'prop-types';
 import axios from 'axios'
 
-const URL = "http://127.0.0.1:8000/api/user/token/"
+const URL = "http://fast-reaches-52593.herokuapp.com/api/user/token/"
 
 class ReturningUser extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class ReturningUser extends Component {
   }
 
   getUserName = (token) => {
-    const url = "http://127.0.0.1:8000/api/user/me/"
+    const url = "http://fast-reaches-52593.herokuapp.com/api/user/me/"
     axios.get(url, { headers: {Authorization: `Token ${document.cookie}`}})
     .then((response) => {
       window.localStorage.setItem('id', response.data.id)
