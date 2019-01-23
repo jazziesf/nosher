@@ -338,7 +338,7 @@ class App extends Component {
       {...pin}
       /> })
 
-    searchResults = this.state.myBoard.map((pin) => {
+    let myBoardSearchResults = this.state.myBoard.map((pin) => {
       return <PinPostCard
       key={pin.id}
       pinButton={"Remove"}
@@ -373,7 +373,7 @@ class App extends Component {
           searchQueryValue={this.state.query}
           searchMyBoard={this.onMyBoardSubmit}
           searchLink={<Link to="/searchresults" className="btn-outline-danger my-2 my-sm-0 searchBtn" onClick={() => this.viewBoard()}>Search</Link>}
-          searchBoard={<Link to="/searchresults" className="btn-outline-warning my-2 my-sm-0 searchBtn" onClick={() => this.viewBoard()}>Search Your Board</Link>}
+          searchBoard={<Link to="/myboardsearchresults" className="btn-outline-warning my-2 my-sm-0 searchBtn" onClick={() => this.viewBoard()}>Search Your Board</Link>}
           />
           ) : (
           <NavbarGuest
@@ -401,6 +401,21 @@ class App extends Component {
                )
              )
            )}/>
+
+           <Route path="/myboardsearchresults" render={() => (
+               this.state.isRevealed ? (
+                 <Redirect to={`/nosherdetails/${this.state.currentPin.id}`}/>
+               ) : (
+               this.state.results ? (
+                 <StackGrid columnWidth={400} >
+                    {myBoardSearchResults}
+                  </StackGrid>
+                ) : (
+                 <NoResults >
+                 </NoResults >
+                )
+              )
+            )}/>
 
          <Route path="/nosher" render={() => (
              this.state.isRevealed ? (
