@@ -51,7 +51,7 @@ render() {
         <div className="row">
           <div className="col-12 col-sm-6 img-fluid img-responsive">
             <img src={pin.image} alt={pin.dish} className="image-fix"/>
-            <Link to="/mynosherboard" className="top-right btn btn-warning" onClick={() => this.props.history.go(-2)}>Back</Link>
+            <Link to="/mynosherboard" className="top-right btn btn-warning" onClick={() => this.props.history.replace("/mynosherboard")}>Back</Link>
           </div>
           <div className="col-12 col-sm-6">
             <div className="container">
