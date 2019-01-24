@@ -394,7 +394,6 @@ class App extends Component {
     })
 
     let userName = window.localStorage.getItem('name')
-    userName = userName.charAt(0).toUpperCase() + userName.slice(1)
 
     return (
       <div className="App">

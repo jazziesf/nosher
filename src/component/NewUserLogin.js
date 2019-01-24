@@ -30,7 +30,7 @@ class NewUserLogin extends Component {
     const value = event.target.value;
 
     const updatedState = {};
-    updatedState[field] = value;
+    updatedState[field] = value.charAt(0).toUpperCase() + value.slice(1);
     this.setState(updatedState);
   }
 
