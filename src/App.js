@@ -237,14 +237,14 @@ class App extends Component {
     const URL = `http://fast-reaches-52593.herokuapp.com/api/board/board/${userId}/pins/${pin.id}/add/`
 
       const apiPayload = {
-        pinList: [pin],
+        pin: [pin],
         user: userId,
       }
 
       axios.post(URL, apiPayload, { headers: {Authorization: `Token ${document.cookie}`}})
       .then((response) => {
         console.log(response)
-        const selectedPin = this.state.myPinList.findIndex((item) => {
+        const selectedPin = this.state.pinList.findIndex((item) => {
              return item.id === pin.id;
          });
 
