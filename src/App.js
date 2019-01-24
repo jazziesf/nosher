@@ -369,10 +369,8 @@ class App extends Component {
     const dropdown1 = this.state.isActive ? "nav-item dropdown show" : "nav-item dropdown"
     const dropdown2 = this.state.isActive ? "dropdown-menu show" : "dropdown-menu"
     const dropdown3 = this.state.isActive ? "true" : "false"
+    
     let userName = window.localStorage.getItem('name')
-
-    userName = userName.charAt(0).toUpperCase() + userName.slice(1)
-
 
     let searchResults = this.state.pinList.map((pin) => {
       return <PinPostCard
