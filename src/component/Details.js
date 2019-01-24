@@ -3,8 +3,7 @@ import './Details.css'
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
-
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import { createBrowserHistory } from 'history';
 // import { Redirect } from 'react-router'
 
@@ -47,7 +46,7 @@ class Details extends Component {
       // this.setState = {
       //   pin: null,
       // }
-      this.props.goBack()
+      this.goBack()
     })
     .catch((error) => {
       // What should we do when we know the post request failed?
@@ -68,8 +67,8 @@ render() {
         <div className="row">
           <div className="col-12 col-sm-6 img-fluid img-responsive">
             <img src={pin.image} alt="Snow" className="image-fix"/>
-            <button className="top-right btn btn-danger pin-btn detail-btn" onClick={() => this.pinToBoard(pin)}>Pin</button>
-            {/*// <Link to="/nosher" className="top-right btn btn-danger" onClick={() => this.props.goBack()}>Back</Link>*/}
+            {/* <button className="top-right btn btn-danger pin-btn detail-btn" onClick={() => this.pinToBoard(pin)}>Pin</button> */}
+            <Link to="/nosher" className="top-right btn btn-danger">Back</Link>
           </div>
           <div className="col-12 col-sm-6">
             <div className="container">
