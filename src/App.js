@@ -369,7 +369,7 @@ class App extends Component {
     const dropdown1 = this.state.isActive ? "nav-item dropdown show" : "nav-item dropdown"
     const dropdown2 = this.state.isActive ? "dropdown-menu show" : "dropdown-menu"
     const dropdown3 = this.state.isActive ? "true" : "false"
-    
+
     let searchResults = this.state.pinList.map((pin) => {
       return <PinPostCard
       key={pin.id}
@@ -399,7 +399,6 @@ class App extends Component {
         <div>
         { document.cookie !== '' ? (
           <Navbar
-          username={userName}
           hamburgerMenu={() => this.toggleHamburgerMenu()}
           collapseNavbar={show}
           dropdown={(event) => this.toggleDropdown(event)}
@@ -409,7 +408,7 @@ class App extends Component {
           closeNav={(event) => this.closeNavBar(event)}
           viewBoard={() => this.viewBoard()}
           logout={<Link to="/home" onClick={this.logOut}>Log-Out</Link>}
-          myScoutList={<Link to="/mynosherboard" onClick={() => this.viewBoard()}>{userName} Nosher Board</Link>}
+          myScoutList={<Link to="/mynosherboard" onClick={() => this.viewBoard()}>Nosher Board</Link>}
           linkAddPin={<Link to="/addnosherpin">Post to Nosher</Link>}
           searchQuery={this.onSubmit}
           searchQueryonChange={this.onFormChange}
