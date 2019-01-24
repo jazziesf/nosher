@@ -4,15 +4,12 @@ import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
-
-  let userName = window.localStorage.getItem('name')
-  userName = userName.charAt(0).toUpperCase() + userName.slice(1)
-  
-  if (userName != null) {
-     userName = userName.charAt(0).toUpperCase() + userName.slice(1)
-  } else {
-    userName = 'Nosher'
-  }
+  // 
+  // if (userName != null) {
+  //    userName = userName.charAt(0).toUpperCase() + userName.slice(1)
+  // } else {
+  //   userName = 'Nosher'
+  // }
 
 return (
   <div className="nav-body">
@@ -33,7 +30,7 @@ return (
               </p>
               <div className={props.dropdownShow} aria-labelledby="navbarDropdown">
                 <p className="dropdown-item" onClick={props.closeNav}>{props.logout}</p>
-                <p className="dropdown-item" onClick={props.closeNav}>{userName} {props.myScoutList}</p>
+                <p className="dropdown-item" onClick={props.closeNav}>{props.myScoutList}</p>
                 <p className="dropdown-item" onClick={props.closeNav}>{props.linkAddPin}</p>
                 <div className="dropdown-divider"></div>
                 <a className="dropdown-item" id="local" href="https://www.thestranger.com/events/food" target="_blank" rel='noreferrer noopener' onClick={props.closeNav}>Seattle Food & Drink Events</a>

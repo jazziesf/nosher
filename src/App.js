@@ -393,6 +393,9 @@ class App extends Component {
       />
     })
 
+    let userName = window.localStorage.getItem('name')
+    userName = userName.charAt(0).toUpperCase() + userName.slice(1)
+
     return (
       <div className="App">
       <Router>
@@ -408,7 +411,7 @@ class App extends Component {
           closeNav={(event) => this.closeNavBar(event)}
           viewBoard={() => this.viewBoard()}
           logout={<Link to="/home" onClick={this.logOut}>Log-Out</Link>}
-          myScoutList={<Link to="/mynosherboard" onClick={() => this.viewBoard()}>Nosher Board</Link>}
+          myScoutList={<Link to="/mynosherboard" onClick={() => this.viewBoard()}>{userName} Nosher Board</Link>}
           linkAddPin={<Link to="/addnosherpin">Post to Nosher</Link>}
           searchQuery={this.onSubmit}
           searchQueryonChange={this.onFormChange}
