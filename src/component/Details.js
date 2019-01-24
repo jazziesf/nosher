@@ -47,7 +47,7 @@ class Details extends Component {
       // this.setState = {
       //   pin: null,
       // }
-      this.props.history.path("/nosher")
+      this.props.goBack()
     })
     .catch((error) => {
       // What should we do when we know the post request failed?
