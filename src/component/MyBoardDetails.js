@@ -43,7 +43,6 @@ class MyBoardDetails extends Component {
 
 
 render() {
-    const width = "width: 75%"
     const pin = this.state.pin || this.props.pinSelected
     if (pin) {
     return (
@@ -78,8 +77,8 @@ render() {
     </div>
     )
   } else {
-    return <div class="progress">
-              <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style={width} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    return <div className="spinner-border text-warning" role="status">
+            <span className="sr-only">Loading...</span>
             </div>
           }
   }
