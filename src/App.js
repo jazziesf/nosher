@@ -371,11 +371,8 @@ class App extends Component {
     const dropdown3 = this.state.isActive ? "true" : "false"
     let userName = window.localStorage.getItem('name')
 
-    if (userName != null) {
-       userName = userName.charAt(0).toUpperCase() + userName.slice(1)
-    } else {
-      userName = 'Nosher'
-    }
+    userName = userName.charAt(0).toUpperCase() + userName.slice(1)
+
 
     let searchResults = this.state.pinList.map((pin) => {
       return <PinPostCard
