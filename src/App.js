@@ -494,11 +494,6 @@ class App extends Component {
            }
          />
 
-         <Route path="/"
-            render={() => (
-              <Splash>
-              </Splash>
-            )} />
 
          <Route path="/home"
             render={() => (
