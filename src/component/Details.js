@@ -75,7 +75,7 @@ render() {
               <p className="dish-detail">{pin.dish.charAt(0).toUpperCase() + pin.dish.slice(1)}</p>
               <p className="restuarnt">{pin.business}</p>
 
-              <p className="city">{pin.city.charAt(0).toUpperCase() + pin.dish.slice(1)}, {pin.state.toUpperCase()} </p>
+              <p className="city">{pin.city.charAt(0).toUpperCase() + pin.city.slice(1)}, {pin.state.toUpperCase()} </p>
 
               <div className="icons-details" >
                 <img src='https://image.flaticon.com/icons/svg/126/126471.svg' alt="like button" className="heart" onClick={() => this.props.incrementLikes(pin)}/>

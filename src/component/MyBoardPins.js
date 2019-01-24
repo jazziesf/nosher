@@ -102,18 +102,18 @@ class MyPinsList extends Component {
     });
 
 
-    if (myPinList.length !== 0) {
+    if (myPinList.length === 0) {
+      return (
+        <div>
+        <p className="empty-pin">Your food journeys await...start adding pins to your board</p>
+        </div>
+      )
+    } else {
       return (
         <div className="body">
         <StackGrid columnWidth={400} >
         {myPinList}
         </StackGrid>
-        </div>
-      )
-    } else {
-      return (
-        <div>
-        <p className="empty-pin">Your food journeys await...start adding pins to your board</p>
         </div>
       )
     }
