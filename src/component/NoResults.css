@@ -19,3 +19,9 @@
   color: black;
   background-color: white;
 }
+
+.empty-pin {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.25em;
+  font-weight: lighter;
+}

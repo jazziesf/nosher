@@ -4,6 +4,7 @@ import PinPostCard from './PinPostCard';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import StackGrid from "react-stack-grid";
+import './NoResults.css'
 
 
 
@@ -99,6 +100,10 @@ class MyPinsList extends Component {
               {...pin}
              />
         });
+        
+        if (myPinList.length === 0) {
+          return <p className="empty-pin">Your food journeys await...start adding pins to your board</p>
+        }
 
   return (
       <div className="body">
