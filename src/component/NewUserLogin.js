@@ -65,6 +65,8 @@ class NewUserLogin extends Component {
         email: newUser.email,
       }
 
+      window.localStorage.setItem('name', newUser.name)
+
       this.setState({
         name: newUser.name
       })
