@@ -157,7 +157,10 @@ class NewPinForm extends Component {
     event.preventDefault();
     const { business, city, details, state, image, dish } = this.state;
 
-    if ( business === '' || city === '' || details === '' || state === ''|| image === '' || dish === '') return;
+    if ( business === '' || city === '' || details === '' || state === ''|| image === '' || dish === '') {
+       alert("Please fill out all of the fields to submit the form");
+       return
+    }
 
     this.addPin(this.state);
     this.resetState();
